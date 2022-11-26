@@ -1,6 +1,11 @@
 # chat-bot
 
-Intéragissez avec ce chat Bot : [Chat Bot](https://GuillaumeDaviid.github.io/chat-bot).
+Interact with this chat Bot : [Chat Bot](https://GuillaumeDaviid.github.io/chat-bot).
+
+# Commands :
+
+- !help
+- !freelance
 
 # Getting Started with Create React App
 
