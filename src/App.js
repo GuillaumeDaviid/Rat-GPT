@@ -1,13 +1,14 @@
 import './App.css';
+import { Configuration, OpenAIApi } from 'openai';
 import Chat from './components/Chat.jsx';
 
 
-function App() {/*
+function App() {
   const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
+    apiKey: process.env.REACT_APP_OPENAI_API_KEY,
   });
 
-  console.log(process.env.OPENAI_API_KEY) 
+  console.log(process.env.REACT_APP_OPENAI_API_KEY)
 
   const openai = new OpenAIApi(configuration);
 
@@ -19,16 +20,16 @@ function App() {/*
       max_tokens: 7,
     });
 
-    console.log(res.data.data[0])
+    console.log(res.data.choices[0].text)
 
     return <div></div>
-  }*/
+  }
 
   return (
     <div className="App">
       <Chat />
 
-      <button>generate</button>
+      <button onClick={generate}>generate</button>
     </div>
   );
 }
