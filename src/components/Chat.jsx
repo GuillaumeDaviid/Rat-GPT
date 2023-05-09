@@ -46,15 +46,15 @@ function Chat() {
     const listMsg = countMsg > 0 ?
     (newMsg.me.map((item, key) => <div className='chat_bot_content-msg'><h2 className='chat_bot-msg'>Moi :</h2><p className='chat_bot-msg' key={item.key}>{item}</p>
     <h2 className='chat_bot-msg'>Bot :</h2> {newMsg.bot[key]}</div>))
- : (<p>dfgf</p>)
+ : (<p></p>)
 
     return(
         <div>
-            <h1>Chat Bot</h1>
+            <h1>Chat Bot with GPT</h1>
             <div className="chat_bot" id="chat_bot">
                 <div className='chat_bot_content-msg' id='chat_bot_content-msg'>
                 <h2 className='chat_bot-msg'>Bot :</h2>
-                <p className='chat_bot-msg'>Bonjour, Je suis un bot codé en React.js</p>
+                <p className='chat_bot-msg'>Bonjour, Je suis un bot codé en React.js et utilisant GPT3 d'Open AI</p>
                 </div>
                 {listMsg}
                 
