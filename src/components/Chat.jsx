@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Configuration, OpenAIApi } from 'openai';
 import './Chat.css'
-import { msgBot } from './Messages.jsx';
 
 function Chat() {
     const [msg, setMsg] = useState('');
     const [countMsg, setCountMsg]= useState(0);
-    const [newMsg, setNewMsg]= useState([]);
-    const [msgGpt, setMsgGpt] = useState([]);
+    const [newMsg, setNewMsg]= useState({'me': [], 'bot': []})
+
+    console.log(newMsg)
 
     const configuration = new Configuration({
         apiKey: process.env.REACT_APP_OPENAI_API_KEY,
@@ -18,13 +18,14 @@ function Chat() {
     const generate = async () => {
        const res = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt: newMsg.slice(-1),
+        prompt: msg,
         temperature: 0,
         max_tokens: 7,
     });
 
     console.log(res.data.choices[0].text)
-    setMsgGpt(msgGpt.concat(res.data.choices[0].text));
+    console.log(newMsg)
+    setNewMsg({'me' : newMsg.me.concat(msg), 'bot': newMsg.bot.concat(res.data.choices[0].text)})
 
     return <div></div>
   }
@@ -32,9 +33,10 @@ function Chat() {
     function handleClick(e){
         e.preventDefault();
         setCountMsg(countMsg + 1);
-        setNewMsg(newMsg.concat(msg))
-        setMsg('');
+        setNewMsg({'me' : newMsg.me.concat(msg), 'bot': newMsg.bot})
         generate();
+        setMsg('');
+        
     }
 
     function handleChange(e){
@@ -42,9 +44,9 @@ function Chat() {
     }
 
     const listMsg = countMsg > 0 ?
-    (newMsg.map((newMsg) => <div className='chat_bot_content-msg'><h2 className='chat_bot-msg'>Moi :</h2><p className='chat_bot-msg' key={newMsg.key}>{newMsg}</p>
-    <h2 className='chat_bot-msg'>Bot :</h2> {msgGpt.slice(-1)}</div>))
- : (<p></p>)
+    (newMsg.me.map((item, key) => <div className='chat_bot_content-msg'><h2 className='chat_bot-msg'>Moi :</h2><p className='chat_bot-msg' key={item.key}>{item}</p>
+    <h2 className='chat_bot-msg'>Bot :</h2> {newMsg.bot[key]}</div>))
+ : (<p>dfgf</p>)
 
     return(
         <div>
