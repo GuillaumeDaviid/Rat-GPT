@@ -7,7 +7,6 @@ function Chat() {
     const [countMsg, setCountMsg]= useState(0);
     const [newMsg, setNewMsg]= useState({'me': [], 'bot': []})
 
-    console.log(newMsg)
 
     const configuration = new Configuration({
         apiKey: process.env.REACT_APP_OPENAI_API_KEY,
@@ -23,8 +22,6 @@ function Chat() {
         max_tokens: 7,
     });
 
-    console.log(res.data.choices[0].text)
-    console.log(newMsg)
     setNewMsg({'me' : newMsg.me.concat(msg), 'bot': newMsg.bot.concat(res.data.choices[0].text)})
 
     return <div></div>
@@ -64,6 +61,9 @@ function Chat() {
                 <input className='msg' id="msg" placeholder='Message'  value={msg} onChange={handleChange}></input>
                 <button className='btn' onClick={handleClick}>Envoyer</button>
             </form>
+
+
+            <p><i>Nombre de tokens par réponse limités pour des raisons de coût*</i></p>
         </div>
     )
 }
