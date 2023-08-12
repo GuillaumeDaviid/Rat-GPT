@@ -18,6 +18,7 @@ function Chat() {
     })
 
     console.log(api)
+    console.log(error)
 
 
     const configuration = new Configuration({
@@ -27,6 +28,7 @@ function Chat() {
     const openai = new OpenAIApi(configuration);
 
     const generate = async () => {
+        console.log(openai)
         try {
           const res = await openai.createCompletion({
             model: "text-davinci-003",
@@ -41,7 +43,8 @@ function Chat() {
         } catch (err) {
           // Gérer les erreurs
           console.error("Erreur lors de la génération :", err);
-          setError(err);
+          setNewMsg({'me': [], 'bot': []})
+          setError(true);
         }
       
         return <div></div>; // Rendu vide (peut-être remplacé par le rendu souhaité)
@@ -49,6 +52,10 @@ function Chat() {
 
     function handleClick(e){
         e.preventDefault();
+        if (localStorage.getItem('api')){
+            console.log("APIIIIIIIII",localStorage.getItem('api'))
+            setApi(localStorage.getItem('api'));
+        }
         setCountMsg(countMsg + 1);
         setNewMsg({'me' : newMsg.me.concat(msg), 'bot': newMsg.bot})
         generate();
@@ -75,7 +82,7 @@ function Chat() {
                 <p className='chat_bot-msg'>Bonjour, Je suis un bot codé en React.js et utilisant GPT3 d'Open AI</p>
                 </div>
                 {
-                    error ? <p>Veuillez entrer une clé API valide !</p> : listMsg
+                    error ? <p>Veuillez entrer une clé API valide et réessayez !</p> : listMsg
                 }
                 
                 
