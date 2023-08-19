@@ -17,10 +17,6 @@ function Chat() {
         }
     })
 
-    console.log(api)
-    console.log(error)
-
-
     const configuration = new Configuration({
         apiKey: api,
       });
@@ -69,17 +65,17 @@ function Chat() {
 
     const listMsg = countMsg > 0 ?
     (newMsg.me.map((item, key) => <div className='chat_bot_content-msg'><h2 className='chat_bot-msg'>Moi :</h2><p className='chat_bot-msg' key={item.key}>{item}</p>
-    <h2 className='chat_bot-msg'>Bot :</h2> {newMsg.bot[key]}</div>))
+    <h2 className='chat_bot-msg'>Rat GPT :</h2> {newMsg.bot[key]}</div>))
  : (<p></p>)
 
     return(
         <div>
-            <h1>Chat Bot with GPT</h1>
+            <h1>Rat GPT</h1>
             <div><Modal/></div>
             <div className="chat_bot" id="chat_bot">
                 <div className='chat_bot_content-msg' id='chat_bot_content-msg'>
-                <h2 className='chat_bot-msg'>Bot :</h2>
-                <p className='chat_bot-msg'>Bonjour, Je suis un bot codé en React.js et utilisant GPT3 d'Open AI</p>
+                <h2 className='chat_bot-msg'>Rat GPT :</h2>
+                <p className='chat_bot-msg'>Bonjour, je fonctionne comme ChatGPT !</p>
                 </div>
                 {
                     error ? <p>Veuillez entrer une clé API valide et réessayez !</p> : listMsg
@@ -93,7 +89,9 @@ function Chat() {
             </form>
 
 
-            <p><i>Nombre de tokens par réponse limités pour des raisons de coût*</i></p>
+            <p><i>Privilégiez l'utilisation de l'API d'OPEN AI à l'abonnement ChatGPT pour faire des économies d'argent !</i></p>
+
+            <p><strong>Il n'est pas recommandé d'utiliser Rat GPT si vous avez une utilisation régulière !</strong></p>
         </div>
     )
 }

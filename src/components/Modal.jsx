@@ -56,7 +56,7 @@ const ParentComponent = () => {
 
   return (
     <div>
-      <button onClick={openModal}>Entrez votre clé API</button>
+      <button onClick={openModal} className='btn-api'>Entrez votre clé API</button>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <h2>Entrez votre clé API !</h2>
         <input type="text"
@@ -64,7 +64,7 @@ const ParentComponent = () => {
                name="api"
                onChange={handleChange}
                value={message} />
-        <button onClick={handleClick}>Envoyer</button>
+        <button onClick={handleClick} className='btn-send'>Envoyer</button>
         <p>Votre clé ne sera stockée qu'en local*</p>
       </Modal>
     </div>
