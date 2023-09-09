@@ -94,6 +94,8 @@ function Chat() {
 
             <p><strong>Il n'est pas recommandé d'utiliser Rat GPT si vous avez une utilisation régulière !</strong></p>
 
+            <i>Ceci est une version Alpha utilisant le modèle davinci 3, le nombre de token est pour l'instant limité à 7.</i>
+
             <Footer/>
         </div>
     )
