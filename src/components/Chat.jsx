@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Configuration, OpenAIApi } from 'openai';
 import Modal from './Modal'
+import Footer from './Footer'
 import './Chat.css'
 
 function Chat() {
@@ -92,6 +93,8 @@ function Chat() {
             <p><i>Privilégiez l'utilisation de l'API d'OPEN AI à l'abonnement ChatGPT pour faire des économies d'argent !</i></p>
 
             <p><strong>Il n'est pas recommandé d'utiliser Rat GPT si vous avez une utilisation régulière !</strong></p>
+
+            <Footer/>
         </div>
     )
 }
