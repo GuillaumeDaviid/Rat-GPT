@@ -1,11 +1,10 @@
-# chat-bot
+# Rat-GPT
 
-Interact with this chat Bot : [Chat Bot](https://GuillaumeDaviid.github.io/chat-bot).
+Alpha version 0.1
 
-# Commands :
+Interact with this chat Bot : [Rat-GPT]([https://GuillaumeDaviid.github.io/chat-bot](https://rat-gpt.vercel.app/)).
 
-- !help
-- !freelance
+Power by OpenAI
 
 # Getting Started with Create React App
 
