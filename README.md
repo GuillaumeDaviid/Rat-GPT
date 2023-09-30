@@ -4,7 +4,7 @@ Alpha version 0.1
 
 Interact with this chat Bot : [Rat-GPT]([https://GuillaumeDaviid.github.io/chat-bot](https://rat-gpt.vercel.app/)).
 
-Power by OpenAI
+Powered by OpenAI
 
 # Getting Started with Create React App
 
